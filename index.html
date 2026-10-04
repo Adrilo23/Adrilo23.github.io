@@ -366,23 +366,22 @@
         <div class="rounded-xl p-6 sm:p-8">
           <div class="flex flex-wrap items-center gap-3">
             <span data-i18n="projects.featured" class="mono-label rounded-full bg-accent-500/12 px-2.5 py-1 text-[10px] text-accent-300 ring-1 ring-inset ring-accent-400/25">Featured</span>
-            <span data-i18n="projects.featured.tags" class="mono-label text-[10px] text-slate-500">Next.js · Supabase · TypeScript</span>
+            <span data-i18n="projects.featured.tags" class="mono-label text-[10px] text-slate-500">Next.js · Supabase · TypeScript · PWA</span>
           </div>
           <h3 class="mt-4 flex items-center gap-2.5 text-2xl font-bold tracking-tight text-slate-50">
             <svg class="h-5 w-5 text-accent-400" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75c-2.3-1.4-5.1-1.9-8.25-1.9v13.4c3.15 0 5.95.5 8.25 1.9 2.3-1.4 5.1-1.9 8.25-1.9V4.85c-3.15 0-5.95.5-8.25 1.9Zm0 0v13.4M9 9.5h1.75a1.75 1.75 0 1 1 0 3.5H9m1.75 0H12m-3-3.5v7"/></svg>
             Finanzas Personales
           </h3>
           <p data-i18n="projects.finanzas.desc" class="mt-3 max-w-3xl text-[14.5px] leading-relaxed text-slate-400">
-            A multi-platform personal finance app to log income and expenses and keep a real handle on your money,
-            with a metrics dashboard to track spending over time. Built with
-            <span class="text-slate-200">Next.js and Supabase</span>, deployed on Vercel. A personal project I
-            keep iterating on to practise full-stack architecture end to end.
+            A personal finance PWA to track income, expenses, investments and budgets in one place. Built with <span class="text-slate-200">Next.js 16 and Supabase</span> (Postgres with Row Level Security) and deployed on Vercel. A personal project I keep iterating on to practise full-stack architecture end to end.
           </p>
           <div class="mt-6 grid gap-x-8 gap-y-2.5 sm:grid-cols-2">
-            <p class="flex gap-2.5 text-[13.5px] text-slate-400"><span class="text-accent-400">▸</span><span data-i18n="projects.finanzas.b1">Income and expense tracking with a Postgres backend via Supabase</span></p>
-            <p class="flex gap-2.5 text-[13.5px] text-slate-400"><span class="text-accent-400">▸</span><span data-i18n="projects.finanzas.b2">Metrics dashboard to monitor spending patterns over time</span></p>
-            <p class="flex gap-2.5 text-[13.5px] text-slate-400"><span class="text-accent-400">▸</span><span data-i18n="projects.finanzas.b3">Server-side architecture with Next.js App Router and TypeScript</span></p>
-            <p class="flex gap-2.5 text-[13.5px] text-slate-400"><span class="text-accent-400">▸</span><span data-i18n="projects.finanzas.b4">Deployed and continuously updated on Vercel</span></p>
+            <p class="flex gap-2.5 text-[13.5px] text-slate-400"><span class="text-accent-400">▸</span><span data-i18n="projects.finanzas.b1">Accounts, categories and transactions with attachments; money stored as integer cents</span></p>
+            <p class="flex gap-2.5 text-[13.5px] text-slate-400"><span class="text-accent-400">▸</span><span data-i18n="projects.finanzas.b2">Recurring rules, transfers between accounts and interest-bearing accounts</span></p>
+            <p class="flex gap-2.5 text-[13.5px] text-slate-400"><span class="text-accent-400">▸</span><span data-i18n="projects.finanzas.b3">Investment accounts with funds (by ISIN) and crypto, plus periodic contribution plans</span></p>
+            <p class="flex gap-2.5 text-[13.5px] text-slate-400"><span class="text-accent-400">▸</span><span data-i18n="projects.finanzas.b4">Monthly budgets with alerts, 12-month evolution chart and XLSX/PDF export</span></p>
+            <p class="flex gap-2.5 text-[13.5px] text-slate-400"><span class="text-accent-400">▸</span><span data-i18n="projects.finanzas.b5">Row Level Security on every table; multi-row operations as atomic SQL functions</span></p>
+            <p class="flex gap-2.5 text-[13.5px] text-slate-400"><span class="text-accent-400">▸</span><span data-i18n="projects.finanzas.b6">Installable PWA with light/dark mode, Vitest tests and GitHub Actions CI</span></p>
           </div>
           <div class="mt-6 flex flex-wrap items-center gap-3 border-t border-edge/70 pt-5">
             <a href="https://github.com/Adrilo23/Finanzas-personales" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2.5 text-sm font-medium text-slate-100 ring-1 ring-inset ring-white/10 transition hover:bg-accent-500/15 hover:text-accent-300">
@@ -630,12 +629,14 @@
       'work.job3.title': 'Administrative Officer',
       'work.job3.desc': 'Public-sector role that built the discipline, documentation habits and user-facing communication skills I still rely on when supporting non-technical colleagues.',
       'projects.eyebrow': '04 — Projects', 'projects.h2': "Things I've built", 'projects.allRepos': 'All repositories',
-      'projects.featured': 'Featured', 'projects.featured.tags': 'Next.js · Supabase · TypeScript',
-      'projects.finanzas.desc': 'A multi-platform personal finance app to log income and expenses and keep a real handle on your money, with a metrics dashboard to track spending over time. Built with <span class="text-slate-200">Next.js and Supabase</span>, deployed on Vercel. A personal project I keep iterating on to practise full-stack architecture end to end.',
-      'projects.finanzas.b1': 'Income and expense tracking with a Postgres backend via Supabase',
-      'projects.finanzas.b2': 'Metrics dashboard to monitor spending patterns over time',
-      'projects.finanzas.b3': 'Server-side architecture with Next.js App Router and TypeScript',
-      'projects.finanzas.b4': 'Deployed and continuously updated on Vercel',
+      'projects.featured': 'Featured', 'projects.featured.tags': 'Next.js · Supabase · TypeScript · PWA',
+      'projects.finanzas.desc': 'A personal finance PWA to track income, expenses, investments and budgets in one place. Built with <span class="text-slate-200">Next.js 16 and Supabase</span> (Postgres with Row Level Security) and deployed on Vercel. A personal project I keep iterating on to practise full-stack architecture end to end.',
+      'projects.finanzas.b1': 'Accounts, categories and transactions with attachments; money stored as integer cents',
+      'projects.finanzas.b2': 'Recurring rules, transfers between accounts and interest-bearing accounts',
+      'projects.finanzas.b3': 'Investment accounts with funds (by ISIN) and crypto, plus periodic contribution plans',
+      'projects.finanzas.b4': 'Monthly budgets with alerts, 12-month evolution chart and XLSX/PDF export',
+      'projects.finanzas.b5': 'Row Level Security on every table; multi-row operations as atomic SQL functions',
+      'projects.finanzas.b6': 'Installable PWA with light/dark mode, Vitest tests and GitHub Actions CI',
       'projects.liveDemo': 'Live demo',
       'projects.spotitube.desc': "A headless Python pipeline that clones my Spotify playlists into YouTube Music using only official APIs — no browser automation, no manual steps.",
       'projects.viewGithub': 'View on GitHub',
@@ -680,12 +681,14 @@
       'work.job3.title': 'Auxiliar Administrativo',
       'work.job3.desc': 'Puesto en el sector público que forjó la disciplina, los hábitos de documentación y las habilidades de comunicación con usuarios que sigo aplicando al dar soporte a compañeros no técnicos.',
       'projects.eyebrow': '04 — Proyectos', 'projects.h2': 'Cosas que he construido', 'projects.allRepos': 'Todos los repositorios',
-      'projects.featured': 'Destacado', 'projects.featured.tags': 'Next.js · Supabase · TypeScript',
-      'projects.finanzas.desc': 'Una aplicación multiplataforma de finanzas personales para registrar ingresos y gastos y controlar de verdad tu dinero, con un apartado de métricas para ver la evolución del gasto. Hecha con <span class="text-slate-200">Next.js y Supabase</span>, desplegada en Vercel. Un proyecto personal que sigo iterando para practicar arquitectura full-stack de principio a fin.',
-      'projects.finanzas.b1': 'Registro de ingresos y gastos con backend en Postgres vía Supabase',
-      'projects.finanzas.b2': 'Panel de métricas para seguir la evolución del gasto en el tiempo',
-      'projects.finanzas.b3': 'Arquitectura server-side con el App Router de Next.js y TypeScript',
-      'projects.finanzas.b4': 'Desplegada y actualizada de forma continua en Vercel',
+      'projects.featured': 'Destacado', 'projects.featured.tags': 'Next.js · Supabase · TypeScript · PWA',
+      'projects.finanzas.desc': 'Una PWA de finanzas personales para llevar ingresos, gastos, inversiones y presupuestos en un solo sitio. Hecha con <span class="text-slate-200">Next.js 16 y Supabase</span> (Postgres con Row Level Security) y desplegada en Vercel. Un proyecto personal que sigo iterando para practicar arquitectura full-stack de principio a fin.',
+      'projects.finanzas.b1': 'Cuentas, categorías y movimientos con adjuntos; dinero guardado en céntimos enteros',
+      'projects.finanzas.b2': 'Movimientos recurrentes, traspasos entre cuentas y cuentas remuneradas',
+      'projects.finanzas.b3': 'Cuentas de inversión con fondos (por ISIN) y criptomonedas, y planes de aportación periódica',
+      'projects.finanzas.b4': 'Presupuestos mensuales con alertas, gráfica de evolución a 12 meses y exportación a XLSX/PDF',
+      'projects.finanzas.b5': 'Row Level Security en todas las tablas; operaciones multi-fila como funciones SQL atómicas',
+      'projects.finanzas.b6': 'PWA instalable con modo claro/oscuro, tests con Vitest y CI en GitHub Actions',
       'projects.liveDemo': 'Ver demo',
       'projects.spotitube.desc': 'Un pipeline de Python sin interfaz que clona mis playlists de Spotify en YouTube Music usando solo APIs oficiales — sin automatización de navegador, sin pasos manuales.',
       'projects.viewGithub': 'Ver en GitHub',
