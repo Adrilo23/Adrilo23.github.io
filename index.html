@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title id="pageTitle">Adrian Lozano Orea — Software Developer & Microsoft 365 Administrator</title>
+<meta id="pageDescription" name="description" content="Adrian Lozano Orea — Software Developer and Microsoft 365 Administrator based in Castile-La Mancha, Spain. .NET, SharePoint, Exchange, Teams, Dynamics 365 and Python automation." />
+<meta name="theme-color" content="#05070a" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Adrian Lozano Orea — Software Developer & Microsoft 365 Administrator" />
+<meta property="og:description" content="Microsoft 365, SharePoint, Exchange, Teams, Dynamics 365, .NET and Python automation. Based in Castilla-La Mancha, Spain." />
+<meta name="twitter:card" content="summary" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2338bdf8'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='15' font-weight='700' text-anchor='middle' fill='%2305070a'%3EAL%3C/text%3E%3C/svg%3E" />
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+        },
+        colors: {
+          ink:   { 950:'#05070a', 900:'#080b11', 850:'#0b0f16', 800:'#0f141d', 700:'#161d29' },
+          edge:  '#1d2634',
+          accent:{ 300:'#7dd3fc', 400:'#38bdf8', 500:'#0ea5e9', 600:'#0284c7' },
+          iris:  '#818cf8',
+        },
+        boxShadow: {
+          glow: '0 0 0 1px rgba(56,189,248,.18), 0 18px 50px -22px rgba(14,165,233,.45)',
+        },
+      }
+    }
+  }
+</script>
+<style>
+  html { background:#05070a; }
+  body { -webkit-font-smoothing: antialiased; }
+  ::selection { background: rgba(56,189,248,.3); }
+
+  .grid-bg::before{
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+    background-image:
+      linear-gradient(to right, rgba(148,163,184,.055) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(148,163,184,.055) 1px, transparent 1px);
+    background-size:64px 64px;
+    mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, #000 30%, transparent 78%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, #000 30%, transparent 78%);
+  }
+  .orb{ position:fixed; border-radius:9999px; filter:blur(90px); pointer-events:none; z-index:0; opacity:.5; }
+
+  .reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
+  .reveal.in{ opacity:1; transform:none; }
+
+  .card-hover{ transition:transform .35s cubic-bezier(.22,1,.36,1), border-color .35s, box-shadow .35s, background-color .35s; }
+  .card-hover:hover{ transform:translateY(-4px); border-color:rgba(56,189,248,.35); box-shadow:0 20px 50px -28px rgba(56,189,248,.55); }
+
+  .mono-label{ font-family:'JetBrains Mono', monospace; letter-spacing:.14em; text-transform:uppercase; }
+
+  .beam{
+    position:absolute; inset:0; border-radius:inherit; padding:1px; pointer-events:none;
+    background:linear-gradient(140deg, rgba(56,189,248,.55), rgba(129,140,248,.28) 40%, transparent 70%);
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor; mask-composite:exclude;
+  }
+  .tick{ animation:pulseDot 2.4s ease-in-out infinite; }
+  @keyframes pulseDot{ 0%,100%{opacity:1; box-shadow:0 0 0 0 rgba(52,211,153,.5);} 50%{opacity:.6; box-shadow:0 0 0 6px rgba(52,211,153,0);} }
+  @media (prefers-reduced-motion: reduce){ .reveal{opacity:1; transform:none; transition:none;} .orb{display:none;} }
+
+  .lang-btn{ color:#64748b; }
+  .lang-btn.active{ background:linear-gradient(90deg, rgba(56,189,248,1), rgba(129,140,248,1)); color:#05070a; }
+  .lang-btn:not(.active):hover{ color:#e2e8f0; }
+</style>
+</head>
+<body class="grid-bg bg-ink-950 font-sans text-slate-300 antialiased">
+
+  <div class="orb w-[42rem] h-[42rem] -top-64 -left-40 bg-accent-600/25"></div>
+  <div class="orb w-[34rem] h-[34rem] top-1/3 -right-52 bg-iris/15"></div>
+
+  <!-- NAV -->
+  <header id="nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+    <div class="mx-auto max-w-6xl px-5">
+      <div id="navbar" class="mt-3 flex items-center justify-between rounded-2xl border border-edge/60 bg-ink-900/60 px-4 py-2.5 backdrop-blur-xl transition-all duration-300">
+        <a href="#top" class="group flex items-center gap-2.5">
+          <span class="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-accent-400 to-iris text-[13px] font-bold text-ink-950">AL</span>
+          <span class="hidden text-sm font-semibold tracking-tight text-slate-200 sm:block">Adrian Lozano Orea</span>
+        </a>
+        <nav class="hidden items-center gap-1 md:flex">
+          <div id="langSwitchDesktop" role="group" aria-label="Language" class="mr-2 flex items-center gap-0.5 rounded-lg border border-edge bg-ink-850/60 p-0.5">
+            <button type="button" data-lang-btn="es" class="lang-btn rounded-md px-2.5 py-1.5 text-xs font-semibold transition">ES</button>
+            <button type="button" data-lang-btn="en" class="lang-btn rounded-md px-2.5 py-1.5 text-xs font-semibold transition">EN</button>
+          </div>
+          <a href="#about"    data-i18n="nav.about" class="rounded-lg px-3 py-2 text-sm text-slate-400 transition hover:bg-white/5 hover:text-slate-100">About</a>
+          <a href="#stack"    data-i18n="nav.stack" class="rounded-lg px-3 py-2 text-sm text-slate-400 transition hover:bg-white/5 hover:text-slate-100">Stack</a>
+          <a href="#work"     data-i18n="nav.work" class="rounded-lg px-3 py-2 text-sm text-slate-400 transition hover:bg-white/5 hover:text-slate-100">Experience</a>
+          <a href="#projects" data-i18n="nav.projects" class="rounded-lg px-3 py-2 text-sm text-slate-400 transition hover:bg-white/5 hover:text-slate-100">Projects</a>
+          <a href="#contact"  data-i18n="nav.contact" class="ml-1 rounded-lg bg-white/5 px-3.5 py-2 text-sm font-medium text-slate-100 ring-1 ring-inset ring-white/10 transition hover:bg-accent-500/15 hover:text-accent-300 hover:ring-accent-400/40">Get in touch</a>
+        </nav>
+        <button id="menuBtn" aria-label="Toggle menu" class="grid h-9 w-9 place-items-center rounded-lg text-slate-300 ring-1 ring-inset ring-white/10 transition hover:bg-white/5 md:hidden">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+      <div id="mobileMenu" class="hidden overflow-hidden rounded-2xl border border-edge/60 bg-ink-900/90 p-2 backdrop-blur-xl md:hidden">
+        <div id="langSwitchMobile" role="group" aria-label="Language" class="mb-1 flex items-center gap-0.5 rounded-lg border border-edge bg-ink-850/60 p-0.5">
+          <button type="button" data-lang-btn="es" class="lang-btn flex-1 rounded-md px-2.5 py-2 text-xs font-semibold transition">ES · Español</button>
+          <button type="button" data-lang-btn="en" class="lang-btn flex-1 rounded-md px-2.5 py-2 text-xs font-semibold transition">EN · English</button>
+        </div>
+        <a href="#about"    data-i18n="nav.about" class="block rounded-lg px-3 py-2.5 text-sm text-slate-300 hover:bg-white/5">About</a>
+        <a href="#stack"    data-i18n="nav.stack" class="block rounded-lg px-3 py-2.5 text-sm text-slate-300 hover:bg-white/5">Stack</a>
+        <a href="#work"     data-i18n="nav.work" class="block rounded-lg px-3 py-2.5 text-sm text-slate-300 hover:bg-white/5">Experience</a>
+        <a href="#projects" data-i18n="nav.projects" class="block rounded-lg px-3 py-2.5 text-sm text-slate-300 hover:bg-white/5">Projects</a>
+        <a href="#contact"  data-i18n="nav.contact" class="block rounded-lg px-3 py-2.5 text-sm text-slate-300 hover:bg-white/5">Get in touch</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="relative z-10">
+
+    <!-- HERO -->
+    <section class="mx-auto max-w-6xl px-5 pt-32 pb-16 sm:pt-40 sm:pb-24">
+      <div class="grid items-center gap-12 lg:grid-cols-[1.15fr_.85fr]">
+        <div class="reveal">
+          <div class="inline-flex items-center gap-2 rounded-full border border-edge bg-ink-850/70 px-3 py-1.5">
+            <span class="tick h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+            <span data-i18n="hero.badge" class="mono-label text-[10.5px] text-slate-400">Villarrobledo, Spain · Remote-friendly</span>
+          </div>
+
+          <h1 class="mt-6 text-4xl font-extrabold leading-[1.06] tracking-tight text-slate-50 sm:text-6xl">
+            Adrian<br class="sm:hidden" />
+            <span class="bg-gradient-to-r from-accent-300 via-accent-400 to-iris bg-clip-text text-transparent"> Lozano Orea</span>
+          </h1>
+
+          <p data-i18n="hero.tagline" class="mt-5 max-w-xl text-lg leading-relaxed text-slate-400">
+            <span class="font-medium text-slate-200">Software Developer</span> &
+            <span class="font-medium text-slate-200">Microsoft 365 Administrator</span>.
+            I keep enterprise tenants healthy — Teams, SharePoint, Exchange, Dynamics&nbsp;365 —
+            and write the code that automates the boring parts.
+          </p>
+
+          <div class="mt-8 flex flex-wrap items-center gap-3">
+            <a href="#projects" class="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-accent-500 to-accent-600 px-5 py-3 text-sm font-semibold text-ink-950 shadow-glow transition hover:from-accent-400 hover:to-accent-500">
+              <span data-i18n="hero.cta">See my work</span>
+              <svg class="h-4 w-4 transition group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></svg>
+            </a>
+            <a href="https://github.com/Adrilo23" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-xl border border-edge bg-ink-850/60 px-5 py-3 text-sm font-medium text-slate-200 transition hover:border-accent-400/40 hover:bg-white/5">
+              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.8 2.74 1.28 3.4.98.11-.76.41-1.28.74-1.57-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.42.36.79 1.08.79 2.18v3.24c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12A11.5 11.5 0 0 0 12 .5Z"/></svg>
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/adrian-lozano-orea/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-xl border border-edge bg-ink-850/60 px-5 py-3 text-sm font-medium text-slate-200 transition hover:border-accent-400/40 hover:bg-white/5">
+              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+
+          <dl class="mt-10 grid max-w-lg grid-cols-2 gap-x-6 gap-y-5 border-t border-edge/70 pt-7 sm:grid-cols-3">
+            <div>
+              <dt data-i18n="hero.stat1.label" class="mono-label text-[10px] text-slate-500">Experience</dt>
+              <dd class="mt-1 text-2xl font-bold text-slate-100">2<span class="text-accent-400">+</span></dd>
+              <dd data-i18n="hero.stat1.sub" class="text-[11.5px] text-slate-500">years in IT</dd>
+            </div>
+            <div>
+              <dt data-i18n="hero.stat2.label" class="mono-label text-[10px] text-slate-500">Focus</dt>
+              <dd class="mt-1 text-2xl font-bold text-slate-100">M365</dd>
+              <dd data-i18n="hero.stat2.sub" class="text-[11.5px] text-slate-500">admin &amp; support</dd>
+            </div>
+            <div class="col-span-2 sm:col-span-1">
+              <dt data-i18n="hero.stat3.label" class="mono-label text-[10px] text-slate-500">Also writing</dt>
+              <dd class="mt-1 text-2xl font-bold text-slate-100">C# / Py</dd>
+              <dd data-i18n="hero.stat3.sub" class="text-[11.5px] text-slate-500">.NET &amp; automation</dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- Terminal card -->
+        <div class="reveal lg:justify-self-end" style="transition-delay:.12s">
+          <div class="relative w-full max-w-md rounded-2xl border border-edge bg-ink-900/80 p-1.5 shadow-2xl backdrop-blur-xl">
+            <span class="beam"></span>
+            <div class="rounded-xl bg-ink-950/70">
+              <div class="flex items-center gap-2 border-b border-edge/70 px-4 py-3">
+                <span class="h-2.5 w-2.5 rounded-full bg-rose-400/70"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-amber-400/70"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-emerald-400/70"></span>
+                <span class="ml-2 font-mono text-[11px] text-slate-500">adrian@m365:~</span>
+              </div>
+              <div class="space-y-2.5 p-5 font-mono text-[12.5px] leading-relaxed">
+                <p class="text-slate-500"># whoami</p>
+                <p class="text-slate-200">Adrian Lozano Orea <span class="text-slate-600">// dev + sysadmin</span></p>
+                <p class="mt-3 text-slate-500"># location</p>
+                <p class="text-slate-300">Villarrobledo → Albacete, <span class="text-accent-300">ES</span></p>
+                <p class="mt-3 text-slate-500"># currently</p>
+                <p class="text-slate-300">Técnico Microsoft 365 <span class="text-slate-600">@</span> <span class="text-iris">Grupo Tecon</span></p>
+                <p class="mt-3 text-slate-500"># stack --short</p>
+                <p class="text-slate-300">M365 · SharePoint · Exchange</p>
+                <p class="text-slate-300">Teams · Dynamics 365 · .NET</p>
+                <p class="text-slate-300">Python · R · SQL</p>
+                <p class="mt-3 text-slate-500"># contact</p>
+                <p><a href="mailto:adriloza923@gmail.com" class="text-accent-300 underline decoration-dotted underline-offset-4 hover:text-accent-200">adriloza923@gmail.com</a></p>
+                <p class="pt-1 text-emerald-400">▌<span class="animate-pulse">_</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="mx-auto max-w-6xl px-5 py-16 sm:py-20">
+      <div class="grid gap-10 lg:grid-cols-[.4fr_.6fr]">
+        <div class="reveal">
+          <p data-i18n="about.eyebrow" class="mono-label text-[11px] text-accent-400">01 — About</p>
+          <h2 data-i18n="about.h2" class="mt-3 text-3xl font-bold tracking-tight text-slate-50 sm:text-4xl">Bridges between<br/>people and platforms.</h2>
+        </div>
+        <div class="reveal space-y-5 text-[15px] leading-relaxed text-slate-400" style="transition-delay:.1s">
+          <p data-i18n="about.p1">
+            I'm a technology professional with <span class="text-slate-200">2 years and 7 months</span> of hands-on
+            experience across software development and Microsoft cloud administration. My day-to-day is helping
+            people inside companies actually get value out of Microsoft 365 — <span class="text-slate-200">Teams,
+            SharePoint, Exchange</span> and beyond — solving incidents and improving the digital experience at work.
+          </p>
+          <p data-i18n="about.p2">
+            I started on the development side: writing <span class="text-slate-200">.NET</span> applications, then
+            moving into platform and tenant work. That mix means I don't just fix the ticket — I look for the script
+            or integration that stops the ticket from being created again. I also hold a
+            <span class="text-slate-200">Microsoft Dynamics 365 Specialist</span> certification covering CRM/ERP
+            implementation, configuration and process automation.
+          </p>
+          <p data-i18n="about.p3">
+            Outside of work I build small tools for myself and publish them on GitHub — the best example being a
+            Python pipeline that migrates my entire Spotify library to YouTube Music using only official APIs. I'm
+            currently deepening my knowledge in <span class="text-slate-200">AI and Big Data</span>, and I'm
+            comfortable working in English (C1.1).
+          </p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span data-i18n="about.tag1" class="rounded-lg border border-edge bg-ink-850/60 px-2.5 py-1.5 text-xs text-slate-400">Problem solving</span>
+            <span data-i18n="about.tag2" class="rounded-lg border border-edge bg-ink-850/60 px-2.5 py-1.5 text-xs text-slate-400">User support</span>
+            <span data-i18n="about.tag3" class="rounded-lg border border-edge bg-ink-850/60 px-2.5 py-1.5 text-xs text-slate-400">Digital transformation</span>
+            <span data-i18n="about.tag4" class="rounded-lg border border-edge bg-ink-850/60 px-2.5 py-1.5 text-xs text-slate-400">Process automation</span>
+            <span class="rounded-lg border border-edge bg-ink-850/60 px-2.5 py-1.5 text-xs text-slate-400">English C1.1</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STACK -->
+    <section id="stack" class="mx-auto max-w-6xl px-5 py-16 sm:py-20">
+      <div class="reveal mb-10">
+        <p data-i18n="stack.eyebrow" class="mono-label text-[11px] text-accent-400">02 — Stack</p>
+        <h2 data-i18n="stack.h2" class="mt-3 text-3xl font-bold tracking-tight text-slate-50 sm:text-4xl">What I work with</h2>
+      </div>
+      <div class="grid gap-5 md:grid-cols-3">
+        <div class="reveal card-hover rounded-2xl border border-edge bg-ink-900/60 p-6">
+          <div class="mb-4 grid h-10 w-10 place-items-center rounded-xl bg-accent-500/12 text-accent-300 ring-1 ring-inset ring-accent-400/25">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5h10.5a4.5 4.5 0 0 0 .75-8.94A6 6 0 0 0 6.6 9.53A4.5 4.5 0 0 0 2.25 15Z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-100">Microsoft 365 &amp; Cloud</h3>
+          <p data-i18n="stack.card1.p" class="mt-1.5 text-[13px] text-slate-500">Administration, support and adoption in enterprise tenants.</p>
+          <ul class="mt-4 flex flex-wrap gap-2">
+            <li class="rounded-md bg-ink-800 px-2.5 py-1 font-mono text-[11px] text-slate-300 ring-1 ring-inset ring-white/5">Microsoft 365</li>
+            <li class="rounded-md bg-ink-800 px-2.5 py-1 font-mono text-[11px] text-slate-300 ring-1 ring-inset ring-white/5">SharePoint</li>
+            <li class="rounded-md bg-ink-800 px-2.5 py-1 font-mono text-[11px] text-slate-300 ring-1 ring-inset ring-white/5">Exchange</li>
+            <li class="rounded-md bg-ink-800 px-2.5 py-1 font-mono text-[11px] text-slate-300 ring-1 ring-inset ring-white/5">Teams</li>
+            <li class="rounded-md bg-ink-800 px-2.5 py-1 font-mono text-[11px] text-slate-300 ring-1 ring-inset ring-white/5">Dynamics 365</li>
+            <li class="rounded-md bg-ink-800 px-2.5 py-1 font-mono text-[11px] text-slate-300 ring-1 ring-inset ring-white/5">Azure</li>
+          </ul>
+        </div>
+
+        <div class="reveal card-hover rounded-2xl border border-edge bg-ink-900/60 p-6" style="transition-delay:.08s">
+          <div class="mb-4 grid h-10 w-10 place-items-center rounded-xl bg-iris/12 text-iris ring-1 ring-inset ring-iris/25">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m8 8-4 4 4 4m8-8 4 4-4 4m-2-12-4 16"/></svg>
+          </div>
+          <h3 data-i18n="stack.card2.h3" class="text-lg font-semibold text-slate-100">Development</h3>
+          <p data-i18n="stack.card2.p" class="mt-1.5 text-[13px] text-slate-500">Backends, scripts and interfaces built to be maintained.</p>
+          <ul class="mt-4 flex flex-wrap gap-2">
+            <li class="rounded-md bg-ink-800 px-2.5 py-1 font-mono text-[11px] text-slate-300 ring-1 ring-inset ring-white/5">.NET</li>
+            <li class="rounded-md bg-ink-800 px-2.5 py-1 font-mono text-[11px] text-slate-300 ring-1 ring-inset ring-white/5">C#</li>
+            <li class="rounded-md bg-ink-800 px-2.5 py-1 font-mono text-[11px] text-slate-300 ring-1 ring-inset ring-white/5">Python</li>
+            <li class="rounded-md bg-ink-800 px-2.5 py-1 font-mono text-[11px] text-slate-300 ring-1 ring-inset ring-white/5">R</li>
+            <li class="rounded-md bg-ink-800 px-2.5 py-1 font-mono text-[11px] text-slate-300 ring-1 ring-inset ring-white/5">SQL</li>
+            <li class="rounded-md bg-ink-800 px-2.5 py-1 font-mono text-[11px] text-slate-300 ring-1 ring-inset ring-white/5">REST APIs</li>
+            <li class="rounded-md bg-ink-800 px-2.5 py-1 font-mono text-[11px] text-slate-300 ring-1 ring-inset ring-white/5">Git</li>
+          </ul>
+        </div>
+
+        <div class="reveal card-hover rounded-2xl border border-edge bg-ink-900/60 p-6" style="transition-delay:.16s">
+          <div class="mb-4 grid h-10 w-10 place-items-center rounded-xl bg-emerald-400/12 text-emerald-300 ring-1 ring-inset ring-emerald-400/25">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.25c-2.5-1.5-5.5-2-9-2v13c3.5 0 6.5.5 9 2 2.5-1.5 5.5-2 9-2v-13c-3.5 0-6.5.5-9 2Zm0 0v13"/></svg>
+          </div>
+          <h3 data-i18n="stack.card3.h3" class="text-lg font-semibold text-slate-100">Learning now</h3>
+          <p data-i18n="stack.card3.p" class="mt-1.5 text-[13px] text-slate-500">Continuous formation keeps the toolkit current.</p>
+          <ul class="mt-4 flex flex-wrap gap-2">
+            <li class="rounded-md bg-ink-800 px-2.5 py-1 font-mono text-[11px] text-slate-300 ring-1 ring-inset ring-white/5">AI</li>
+            <li class="rounded-md bg-ink-800 px-2.5 py-1 font-mono text-[11px] text-slate-300 ring-1 ring-inset ring-white/5">Big Data</li>
+            <li class="rounded-md bg-ink-800 px-2.5 py-1 font-mono text-[11px] text-slate-300 ring-1 ring-inset ring-white/5">Automation</li>
+            <li class="rounded-md bg-ink-800 px-2.5 py-1 font-mono text-[11px] text-slate-300 ring-1 ring-inset ring-white/5">CRM / ERP</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="work" class="mx-auto max-w-6xl px-5 py-16 sm:py-20">
+      <div class="reveal mb-10">
+        <p data-i18n="work.eyebrow" class="mono-label text-[11px] text-accent-400">03 — Experience</p>
+        <h2 data-i18n="work.h2" class="mt-3 text-3xl font-bold tracking-tight text-slate-50 sm:text-4xl">Where I've worked</h2>
+      </div>
+
+      <ol class="relative space-y-8 border-l border-edge pl-6 sm:pl-8">
+        <li class="reveal relative">
+          <span class="absolute -left-[31px] top-1.5 h-3 w-3 rounded-full bg-accent-400 ring-4 ring-ink-950 sm:-left-[39px]"></span>
+          <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <h3 data-i18n="work.job1.title" class="text-lg font-semibold text-slate-100">Técnico Microsoft 365</h3>
+            <span data-i18n="work.current" class="mono-label rounded-full bg-emerald-400/10 px-2 py-0.5 text-[10px] text-emerald-300 ring-1 ring-inset ring-emerald-400/25">Current</span>
+          </div>
+          <p class="mt-0.5 text-sm text-accent-300">Grupo Tecon · Albacete, Castilla-La Mancha</p>
+          <p class="mono-label mt-1 text-[10px] text-slate-500"><span data-i18n="work.job1.dates">Mar 2025 — </span><span data-i18n="work.present">Present</span></p>
+          <p data-i18n="work.job1.desc" class="mt-3 max-w-3xl text-[14.5px] leading-relaxed text-slate-400">
+            Specialised in supporting users across the Microsoft 365 suite — Teams, SharePoint, Exchange and more —
+            resolving incidents and improving the digital workplace experience for business clients.
+          </p>
+        </li>
+
+        <li class="reveal relative">
+          <span class="absolute -left-[31px] top-1.5 h-3 w-3 rounded-full bg-slate-600 ring-4 ring-ink-950 sm:-left-[39px]"></span>
+          <h3 data-i18n="work.job2.title" class="text-lg font-semibold text-slate-100">Desarrollador de .NET</h3>
+          <p class="mt-0.5 text-sm text-accent-300">Proceso de la Información CLM (Proinfo) · Albacete</p>
+          <p class="mono-label mt-1 text-[10px] text-slate-500">May 2024 — Jul 2024</p>
+          <p data-i18n="work.job2.desc" class="mt-3 max-w-3xl text-[14.5px] leading-relaxed text-slate-400">
+            Software development within a digital-transformation consultancy working across .NET, SQL Server,
+            Docuware, Odoo and Azure-based services.
+          </p>
+        </li>
+
+        <li class="reveal relative">
+          <span class="absolute -left-[31px] top-1.5 h-3 w-3 rounded-full bg-slate-600 ring-4 ring-ink-950 sm:-left-[39px]"></span>
+          <h3 data-i18n="work.job3.title" class="text-lg font-semibold text-slate-100">Administrative Officer</h3>
+          <p class="mt-0.5 text-sm text-accent-300">Ayuntamiento de Villarrobledo · Villarrobledo</p>
+          <p class="mono-label mt-1 text-[10px] text-slate-500">Jul 2022 — Jul 2023</p>
+          <p data-i18n="work.job3.desc" class="mt-3 max-w-3xl text-[14.5px] leading-relaxed text-slate-400">
+            Public-sector role that built the discipline, documentation habits and user-facing communication
+            skills I still rely on when supporting non-technical colleagues.
+          </p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="mx-auto max-w-6xl px-5 py-16 sm:py-20">
+      <div class="reveal mb-10 flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p data-i18n="projects.eyebrow" class="mono-label text-[11px] text-accent-400">04 — Projects</p>
+          <h2 data-i18n="projects.h2" class="mt-3 text-3xl font-bold tracking-tight text-slate-50 sm:text-4xl">Things I've built</h2>
+        </div>
+        <a href="https://github.com/Adrilo23?tab=repositories" target="_blank" rel="noopener" class="group inline-flex items-center gap-1.5 text-sm font-medium text-accent-300 hover:text-accent-200">
+          <span data-i18n="projects.allRepos">All repositories</span>
+          <svg class="h-3.5 w-3.5 transition group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7m0 0H9m8 0v8"/></svg>
+        </a>
+      </div>
+
+      <!-- Featured project -->
+      <article class="reveal card-hover mb-6 overflow-hidden rounded-2xl border border-edge bg-gradient-to-b from-ink-900/80 to-ink-900/40 p-1">
+        <span class="beam"></span>
+        <div class="rounded-xl p-6 sm:p-8">
+          <div class="flex flex-wrap items-center gap-3">
+            <span data-i18n="projects.featured" class="mono-label rounded-full bg-accent-500/12 px-2.5 py-1 text-[10px] text-accent-300 ring-1 ring-inset ring-accent-400/25">Featured</span>
+            <span data-i18n="projects.featured.tags" class="mono-label text-[10px] text-slate-500">Next.js · Supabase · TypeScript</span>
+          </div>
+          <h3 class="mt-4 flex items-center gap-2.5 text-2xl font-bold tracking-tight text-slate-50">
+            <svg class="h-5 w-5 text-accent-400" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75c-2.3-1.4-5.1-1.9-8.25-1.9v13.4c3.15 0 5.95.5 8.25 1.9 2.3-1.4 5.1-1.9 8.25-1.9V4.85c-3.15 0-5.95.5-8.25 1.9Zm0 0v13.4M9 9.5h1.75a1.75 1.75 0 1 1 0 3.5H9m1.75 0H12m-3-3.5v7"/></svg>
+            Finanzas Personales
+          </h3>
+          <p data-i18n="projects.finanzas.desc" class="mt-3 max-w-3xl text-[14.5px] leading-relaxed text-slate-400">
+            A multi-platform personal finance app to log income and expenses and keep a real handle on your money,
+            with a metrics dashboard to track spending over time. Built with
+            <span class="text-slate-200">Next.js and Supabase</span>, deployed on Vercel. A personal project I
+            keep iterating on to practise full-stack architecture end to end.
+          </p>
+          <div class="mt-6 grid gap-x-8 gap-y-2.5 sm:grid-cols-2">
+            <p class="flex gap-2.5 text-[13.5px] text-slate-400"><span class="text-accent-400">▸</span><span data-i18n="projects.finanzas.b1">Income and expense tracking with a Postgres backend via Supabase</span></p>
+            <p class="flex gap-2.5 text-[13.5px] text-slate-400"><span class="text-accent-400">▸</span><span data-i18n="projects.finanzas.b2">Metrics dashboard to monitor spending patterns over time</span></p>
+            <p class="flex gap-2.5 text-[13.5px] text-slate-400"><span class="text-accent-400">▸</span><span data-i18n="projects.finanzas.b3">Server-side architecture with Next.js App Router and TypeScript</span></p>
+            <p class="flex gap-2.5 text-[13.5px] text-slate-400"><span class="text-accent-400">▸</span><span data-i18n="projects.finanzas.b4">Deployed and continuously updated on Vercel</span></p>
+          </div>
+          <div class="mt-6 flex flex-wrap items-center gap-3 border-t border-edge/70 pt-5">
+            <a href="https://github.com/Adrilo23/Finanzas-personales" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2.5 text-sm font-medium text-slate-100 ring-1 ring-inset ring-white/10 transition hover:bg-accent-500/15 hover:text-accent-300">
+              <span data-i18n="projects.viewGithub">View on GitHub</span>
+              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7m0 0H9m8 0v8"/></svg>
+            </a>
+            <a href="https://finanzas-personales-one-opal.vercel.app" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg border border-edge px-4 py-2.5 text-sm font-medium text-slate-300 transition hover:border-accent-400/40 hover:text-accent-300">
+              <span data-i18n="projects.liveDemo">Live demo</span>
+              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7m0 0H9m8 0v8"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        <a href="https://github.com/Adrilo23/Spotitube" target="_blank" rel="noopener" class="reveal card-hover flex flex-col rounded-2xl border border-edge bg-ink-900/60 p-6">
+          <div class="flex items-center justify-between">
+            <svg class="h-5 w-5 text-slate-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.8 2.74 1.28 3.4.98.11-.76.41-1.28.74-1.57-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.42.36.79 1.08.79 2.18v3.24c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12A11.5 11.5 0 0 0 12 .5Z"/></svg>
+            <span class="mono-label text-[10px] text-slate-500">Python</span>
+          </div>
+          <h3 class="mt-4 font-semibold text-slate-100">Spotitube</h3>
+          <p data-i18n="projects.spotitube.desc" class="mt-2 flex-1 text-[13.5px] leading-relaxed text-slate-500">
+            A headless Python pipeline that clones my Spotify playlists into YouTube Music using only official APIs — no browser automation, no manual steps.
+          </p>
+          <span class="mt-4 inline-flex items-center gap-1.5 text-[13px] font-medium text-accent-300">github.com/Adrilo23/Spotitube</span>
+        </a>
+
+        <a href="https://github.com/Adrilo23/PRIA" target="_blank" rel="noopener" class="reveal card-hover flex flex-col rounded-2xl border border-edge bg-ink-900/60 p-6" style="transition-delay:.08s">
+          <div class="flex items-center justify-between">
+            <svg class="h-5 w-5 text-slate-500" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg>
+            <span class="mono-label text-[10px] text-slate-500">R</span>
+          </div>
+          <h3 class="mt-4 font-semibold text-slate-100">PRIA</h3>
+          <p data-i18n="projects.pria.desc" class="mt-2 flex-1 text-[13.5px] leading-relaxed text-slate-500">
+            Repository from my AI &amp; Big Data formation — exploratory analysis work written in R.
+          </p>
+          <span class="mt-4 inline-flex items-center gap-1.5 text-[13px] font-medium text-accent-300">github.com/Adrilo23/PRIA</span>
+        </a>
+
+
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="mx-auto max-w-6xl px-5 py-16 sm:py-20">
+      <div class="reveal mb-10">
+        <p data-i18n="edu.eyebrow" class="mono-label text-[11px] text-accent-400">05 — Education &amp; Certifications</p>
+        <h2 data-i18n="edu.h2" class="mt-3 text-3xl font-bold tracking-tight text-slate-50 sm:text-4xl">Formation</h2>
+      </div>
+      <div class="grid gap-5 sm:grid-cols-2">
+        <div class="reveal rounded-2xl border border-edge bg-ink-900/60 p-6">
+          <div class="flex items-start gap-4">
+            <span class="grid h-10 w-10 flex-none place-items-center rounded-xl bg-accent-500/12 text-accent-300 ring-1 ring-inset ring-accent-400/25">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+            </span>
+            <div>
+              <h3 class="font-semibold text-slate-100">Microsoft Dynamics 365 Specialist</h3>
+              <p class="text-sm text-accent-300">Grupo Tecon</p>
+              <p class="mono-label mt-1 text-[10px] text-slate-500">2024 — 2025</p>
+              <p data-i18n="edu.card1.desc" class="mt-2.5 text-[13.5px] leading-relaxed text-slate-500">
+                Certified specialist in implementing, configuring and optimising Dynamics 365 solutions across
+                CRM and ERP, integrating with the wider Microsoft stack.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal rounded-2xl border border-edge bg-ink-900/60 p-6" style="transition-delay:.08s">
+          <div class="flex items-start gap-4">
+            <span class="grid h-10 w-10 flex-none place-items-center rounded-xl bg-iris/12 text-iris ring-1 ring-inset ring-iris/25">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.5a6 6 0 1 0 6 6m-6-6a6 6 0 0 1 6 6m-9.75 3 3-3m6-6 3-3"/></svg>
+            </span>
+            <div>
+              <h3 data-i18n="edu.card2.title" class="font-semibold text-slate-100">Specialisation Course — AI &amp; Big Data</h3>
+              <p data-i18n="edu.card2.org" class="text-sm text-accent-300">Higher Education</p>
+              <p class="mono-label mt-1 text-[10px] text-slate-500">2023 — 2024</p>
+              <p data-i18n="edu.card2.desc" class="mt-2.5 text-[13.5px] leading-relaxed text-slate-500">
+                Specialisation course covering artificial intelligence and big data fundamentals,
+                building on my software development background.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal rounded-2xl border border-edge bg-ink-900/60 p-6" style="transition-delay:.12s">
+          <div class="flex items-start gap-4">
+            <span class="grid h-10 w-10 flex-none place-items-center rounded-xl bg-accent-500/12 text-accent-300 ring-1 ring-inset ring-accent-400/25">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 19V5m0 14h16M4 8h9m0 0v4H4m9-4V5"/></svg>
+            </span>
+            <div>
+              <h3 data-i18n="edu.card3.title" class="font-semibold text-slate-100">Higher Degree — Web/Multimedia Management &amp; Webmaster</h3>
+              <p class="text-sm text-accent-300">IES Virrey Morcillo</p>
+              <p class="mono-label mt-1 text-[10px] text-slate-500">2020 — 2022</p>
+              <p data-i18n="edu.card3.desc" class="mt-2.5 text-[13.5px] leading-relaxed text-slate-500">
+                Vocational higher education in web development and multimedia management — the foundation of
+                everything I've built since.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal rounded-2xl border border-edge bg-ink-900/60 p-6" style="transition-delay:.16s">
+          <div class="flex items-start gap-4">
+            <span class="grid h-10 w-10 flex-none place-items-center rounded-xl bg-emerald-400/12 text-emerald-300 ring-1 ring-inset ring-emerald-400/25">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 1 0-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9M3.6 9h16.8M3.6 15h16.8"/></svg>
+            </span>
+            <div>
+              <h3 class="font-semibold text-slate-100">English — C1.1</h3>
+              <p class="text-sm text-accent-300">EOI Menéndez Pelayo</p>
+              <p class="mono-label mt-1 text-[10px] text-slate-500">2021 — 2022</p>
+              <p data-i18n="edu.card4.desc" class="mt-2.5 text-[13.5px] leading-relaxed text-slate-500">
+                Advanced-level certification — comfortable working in international and multicultural IT teams.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="mx-auto max-w-6xl px-5 py-16 sm:py-24">
+      <div class="reveal relative overflow-hidden rounded-3xl border border-edge bg-ink-900/70 px-6 py-12 text-center sm:px-12 sm:py-16">
+        <span class="beam"></span>
+        <div class="pointer-events-none absolute -top-28 left-1/2 h-64 w-[36rem] -translate-x-1/2 rounded-full bg-accent-500/15 blur-3xl"></div>
+        <div class="relative">
+          <p data-i18n="contact.eyebrow" class="mono-label text-[11px] text-accent-400">06 — Contact</p>
+          <h2 data-i18n="contact.h2" class="mt-4 text-3xl font-bold tracking-tight text-slate-50 sm:text-5xl">Let's talk.</h2>
+          <p data-i18n="contact.p" class="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-slate-400">
+            Whether it's a Microsoft 365 challenge, a development project or just a conversation about
+            automation — my inbox is open.
+          </p>
+
+          <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a href="mailto:adriloza923@gmail.com" class="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-accent-500 to-accent-600 px-6 py-3.5 text-sm font-semibold text-ink-950 shadow-glow transition hover:from-accent-400 hover:to-accent-500">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7.5 12 13l9-5.5M3 6.75A1.75 1.75 0 0 1 4.75 5h14.5A1.75 1.75 0 0 1 21 6.75v10.5A1.75 1.75 0 0 1 19.25 19H4.75A1.75 1.75 0 0 1 3 17.25V6.75Z"/></svg>
+              adriloza923@gmail.com
+            </a>
+            <button id="copyBtn" class="inline-flex items-center gap-2 rounded-xl border border-edge bg-ink-850/60 px-6 py-3.5 text-sm font-medium text-slate-200 transition hover:border-accent-400/40 hover:bg-white/5">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V5.5A1.5 1.5 0 0 1 9.5 4h9A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H17M4 9.5A1.5 1.5 0 0 1 5.5 8h9A1.5 1.5 0 0 1 16 9.5v9a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 4 18.5v-9Z"/></svg>
+              <span id="copyLabel" data-i18n="contact.copy">Copy address</span>
+            </button>
+          </div>
+
+          <div class="mt-8 flex items-center justify-center gap-3">
+            <a href="https://github.com/Adrilo23" target="_blank" rel="noopener" aria-label="GitHub" class="grid h-11 w-11 place-items-center rounded-xl border border-edge bg-ink-850/60 text-slate-400 transition hover:-translate-y-0.5 hover:border-accent-400/40 hover:text-accent-300">
+              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.8 2.74 1.28 3.4.98.11-.76.41-1.28.74-1.57-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.42.36.79 1.08.79 2.18v3.24c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12A11.5 11.5 0 0 0 12 .5Z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/adrian-lozano-orea/" target="_blank" rel="noopener" aria-label="LinkedIn" class="grid h-11 w-11 place-items-center rounded-xl border border-edge bg-ink-850/60 text-slate-400 transition hover:-translate-y-0.5 hover:border-accent-400/40 hover:text-accent-300">
+              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+            </a>
+            <a href="mailto:adriloza923@gmail.com" aria-label="Email" class="grid h-11 w-11 place-items-center rounded-xl border border-edge bg-ink-850/60 text-slate-400 transition hover:-translate-y-0.5 hover:border-accent-400/40 hover:text-accent-300">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7.5 12 13l9-5.5M3 6.75A1.75 1.75 0 0 1 4.75 5h14.5A1.75 1.75 0 0 1 21 6.75v10.5A1.75 1.75 0 0 1 19.25 19H4.75A1.75 1.75 0 0 1 3 17.25V6.75Z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="mx-auto max-w-6xl px-5 pb-12">
+      <div class="flex flex-col items-center justify-between gap-4 border-t border-edge/70 pt-8 sm:flex-row">
+        <p class="text-[13px] text-slate-500">
+          © <span id="year">2026</span> Adrian Lozano Orea · Villarrobledo, Castilla-La Mancha, Spain
+        </p>
+        <p data-i18n="footer.built" class="font-mono text-[11.5px] text-slate-600">Built with Tailwind CSS · no analytics, no cookies</p>
+      </div>
+    </footer>
+  </main>
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+  // Nav shrink on scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    const s = window.scrollY > 40;
+    navbar.classList.toggle('bg-ink-900/85', s);
+    navbar.classList.toggle('shadow-lg', s);
+    navbar.classList.toggle('border-edge', s);
+  }, { passive: true });
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Copy email
+  const copyBtn = document.getElementById('copyBtn');
+  const copyLabel = document.getElementById('copyLabel');
+  copyBtn.addEventListener('click', async () => {
+    const email = 'adriloza923@gmail.com';
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(email);
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = email; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+      }
+      copyLabel.textContent = I18N[currentLang]['contact.copied'];
+      copyBtn.classList.add('border-emerald-400/50', 'text-emerald-300');
+    } catch (e) {
+      copyLabel.textContent = I18N[currentLang]['contact.copyFallback'];
+    }
+    setTimeout(() => {
+      copyLabel.textContent = I18N[currentLang]['contact.copy'];
+      copyBtn.classList.remove('border-emerald-400/50', 'text-emerald-300');
+    }, 1900);
+  });
+
+  // ---- i18n ----
+  const I18N = {
+    en: {
+      'pageTitle': 'Adrian Lozano Orea — Software Developer & Microsoft 365 Administrator',
+      'pageDescription': 'Adrian Lozano Orea — Software Developer and Microsoft 365 Administrator based in Castile-La Mancha, Spain. .NET, SharePoint, Exchange, Teams, Dynamics 365 and Python automation.',
+      'nav.about': 'About', 'nav.stack': 'Stack', 'nav.work': 'Experience', 'nav.projects': 'Projects', 'nav.contact': 'Get in touch',
+      'hero.badge': 'Villarrobledo, Spain · Remote-friendly',
+      'hero.tagline': '<span class="font-medium text-slate-200">Software Developer</span> & <span class="font-medium text-slate-200">Microsoft 365 Administrator</span>. I keep enterprise tenants healthy — Teams, SharePoint, Exchange, Dynamics&nbsp;365 — and write the code that automates the boring parts.',
+      'hero.cta': 'See my work',
+      'hero.stat1.label': 'Experience', 'hero.stat1.sub': 'years in IT',
+      'hero.stat2.label': 'Focus', 'hero.stat2.sub': 'admin &amp; support',
+      'hero.stat3.label': 'Also writing', 'hero.stat3.sub': '.NET &amp; automation',
+      'about.eyebrow': '01 — About',
+      'about.h2': 'Bridges between<br/>people and platforms.',
+      'about.p1': "I'm a technology professional with <span class=\"text-slate-200\">2 years and 7 months</span> of hands-on experience across software development and Microsoft cloud administration. My day-to-day is helping people inside companies actually get value out of Microsoft 365 — <span class=\"text-slate-200\">Teams, SharePoint, Exchange</span> and beyond — solving incidents and improving the digital experience at work.",
+      'about.p2': "I started on the development side: writing <span class=\"text-slate-200\">.NET</span> applications, then moving into platform and tenant work. That mix means I don't just fix the ticket — I look for the script or integration that stops the ticket from being created again. I also hold a <span class=\"text-slate-200\">Microsoft Dynamics 365 Specialist</span> certification covering CRM/ERP implementation, configuration and process automation.",
+      'about.p3': "Outside of work I build small tools for myself and publish them on GitHub — the best example being a Python pipeline that migrates my entire Spotify library to YouTube Music using only official APIs. I'm currently deepening my knowledge in <span class=\"text-slate-200\">AI and Big Data</span>, and I'm comfortable working in English (C1.1).",
+      'about.tag1': 'Problem solving', 'about.tag2': 'User support', 'about.tag3': 'Digital transformation', 'about.tag4': 'Process automation',
+      'stack.eyebrow': '02 — Stack', 'stack.h2': 'What I work with',
+      'stack.card1.p': 'Administration, support and adoption in enterprise tenants.',
+      'stack.card2.h3': 'Development', 'stack.card2.p': 'Backends, scripts and interfaces built to be maintained.',
+      'stack.card3.h3': 'Learning now', 'stack.card3.p': 'Continuous formation keeps the toolkit current.',
+      'work.eyebrow': '03 — Experience', 'work.h2': "Where I've worked", 'work.current': 'Current', 'work.present': 'Present',
+      'work.job1.title': 'Microsoft 365 Technician', 'work.job1.dates': 'Mar 2025 — ',
+      'work.job1.desc': 'Specialised in supporting users across the Microsoft 365 suite — Teams, SharePoint, Exchange and more — resolving incidents and improving the digital workplace experience for business clients.',
+      'work.job2.title': '.NET Developer',
+      'work.job2.desc': 'Software development within a digital-transformation consultancy working across .NET, SQL Server, Docuware, Odoo and Azure-based services.',
+      'work.job3.title': 'Administrative Officer',
+      'work.job3.desc': 'Public-sector role that built the discipline, documentation habits and user-facing communication skills I still rely on when supporting non-technical colleagues.',
+      'projects.eyebrow': '04 — Projects', 'projects.h2': "Things I've built", 'projects.allRepos': 'All repositories',
+      'projects.featured': 'Featured', 'projects.featured.tags': 'Next.js · Supabase · TypeScript',
+      'projects.finanzas.desc': 'A multi-platform personal finance app to log income and expenses and keep a real handle on your money, with a metrics dashboard to track spending over time. Built with <span class="text-slate-200">Next.js and Supabase</span>, deployed on Vercel. A personal project I keep iterating on to practise full-stack architecture end to end.',
+      'projects.finanzas.b1': 'Income and expense tracking with a Postgres backend via Supabase',
+      'projects.finanzas.b2': 'Metrics dashboard to monitor spending patterns over time',
+      'projects.finanzas.b3': 'Server-side architecture with Next.js App Router and TypeScript',
+      'projects.finanzas.b4': 'Deployed and continuously updated on Vercel',
+      'projects.liveDemo': 'Live demo',
+      'projects.spotitube.desc': "A headless Python pipeline that clones my Spotify playlists into YouTube Music using only official APIs — no browser automation, no manual steps.",
+      'projects.viewGithub': 'View on GitHub',
+      'projects.pria.desc': 'Repository from my AI &amp; Big Data formation — exploratory analysis work written in R.',
+      'edu.eyebrow': '05 — Education &amp; Certifications', 'edu.h2': 'Formation',
+      'edu.card1.desc': 'Certified specialist in implementing, configuring and optimising Dynamics 365 solutions across CRM and ERP, integrating with the wider Microsoft stack.',
+      'edu.card2.title': 'Specialisation Course — AI &amp; Big Data', 'edu.card2.org': 'Higher Education',
+      'edu.card2.desc': 'Specialisation course covering artificial intelligence and big data fundamentals, building on my software development background.',
+      'edu.card3.title': 'Higher Degree — Web/Multimedia Management &amp; Webmaster',
+      'edu.card3.desc': "Vocational higher education in web development and multimedia management — the foundation of everything I've built since.",
+      'edu.card4.desc': 'Advanced-level certification — comfortable working in international and multicultural IT teams.',
+      'contact.eyebrow': '06 — Contact', 'contact.h2': "Let's talk.",
+      'contact.p': "Whether it's a Microsoft 365 challenge, a development project or just a conversation about automation — my inbox is open.",
+      'contact.copy': 'Copy address', 'contact.copied': 'Copied!', 'contact.copyFallback': 'Press ⌘/Ctrl+C',
+      'footer.built': 'Built with Tailwind CSS · no analytics, no cookies',
+    },
+    es: {
+      'pageTitle': 'Adrian Lozano Orea — Desarrollador de Software y Administrador de Microsoft 365',
+      'pageDescription': 'Adrian Lozano Orea — Desarrollador de Software y Administrador de Microsoft 365 en Castilla-La Mancha, España. .NET, SharePoint, Exchange, Teams, Dynamics 365 y automatización con Python.',
+      'nav.about': 'Sobre mí', 'nav.stack': 'Tecnologías', 'nav.work': 'Experiencia', 'nav.projects': 'Proyectos', 'nav.contact': 'Contacto',
+      'hero.badge': 'Villarrobledo, España · Disponible en remoto',
+      'hero.tagline': '<span class="font-medium text-slate-200">Desarrollador de Software</span> y <span class="font-medium text-slate-200">Administrador de Microsoft 365</span>. Mantengo sanos los tenants empresariales — Teams, SharePoint, Exchange, Dynamics&nbsp;365 — y escribo el código que automatiza las tareas repetitivas.',
+      'hero.cta': 'Ver mi trabajo',
+      'hero.stat1.label': 'Experiencia', 'hero.stat1.sub': 'años en IT',
+      'hero.stat2.label': 'Enfoque', 'hero.stat2.sub': 'administración y soporte',
+      'hero.stat3.label': 'También escribo', 'hero.stat3.sub': '.NET y automatización',
+      'about.eyebrow': '01 — Sobre mí',
+      'about.h2': 'Puentes entre<br/>personas y plataformas.',
+      'about.p1': 'Soy un profesional tecnológico con <span class="text-slate-200">2 años y 7 meses</span> de experiencia práctica entre desarrollo de software y administración de la nube de Microsoft. Mi día a día consiste en ayudar a las personas dentro de las empresas a sacar valor real de Microsoft 365 — <span class="text-slate-200">Teams, SharePoint, Exchange</span> y más — resolviendo incidencias y mejorando la experiencia digital en el trabajo.',
+      'about.p2': 'Empecé en el lado del desarrollo: escribiendo aplicaciones <span class="text-slate-200">.NET</span>, para después pasar al trabajo de plataforma y tenants. Esa mezcla hace que no me limite a resolver el ticket — busco el script o la integración que evite que ese ticket vuelva a abrirse. También tengo la certificación <span class="text-slate-200">Microsoft Dynamics 365 Specialist</span>, centrada en implementación, configuración y automatización de procesos en CRM/ERP.',
+      'about.p3': 'Fuera del trabajo, construyo pequeñas herramientas para mí y las publico en GitHub — el mejor ejemplo es un pipeline en Python que migra toda mi biblioteca de Spotify a YouTube Music usando solo APIs oficiales. Actualmente estoy profundizando en <span class="text-slate-200">IA y Big Data</span>, y me manejo con soltura en inglés (C1.1).',
+      'about.tag1': 'Resolución de problemas', 'about.tag2': 'Soporte a usuarios', 'about.tag3': 'Transformación digital', 'about.tag4': 'Automatización de procesos',
+      'stack.eyebrow': '02 — Tecnologías', 'stack.h2': 'Con qué trabajo',
+      'stack.card1.p': 'Administración, soporte y adopción en tenants empresariales.',
+      'stack.card2.h3': 'Desarrollo', 'stack.card2.p': 'Backends, scripts e interfaces construidos para ser mantenibles.',
+      'stack.card3.h3': 'Aprendiendo ahora', 'stack.card3.p': 'La formación continua mantiene el stack actualizado.',
+      'work.eyebrow': '03 — Experiencia', 'work.h2': 'Dónde he trabajado', 'work.current': 'Actual', 'work.present': 'Actualidad',
+      'work.job1.title': 'Técnico Microsoft 365', 'work.job1.dates': 'Mar 2025 — ',
+      'work.job1.desc': 'Especializado en dar soporte a usuarios en todo el conjunto de Microsoft 365 — Teams, SharePoint, Exchange y más — resolviendo incidencias y mejorando la experiencia digital de trabajo de los clientes.',
+      'work.job2.title': 'Desarrollador de .NET',
+      'work.job2.desc': 'Desarrollo de software en una consultora de transformación digital, trabajando con .NET, SQL Server, Docuware, Odoo y servicios basados en Azure.',
+      'work.job3.title': 'Auxiliar Administrativo',
+      'work.job3.desc': 'Puesto en el sector público que forjó la disciplina, los hábitos de documentación y las habilidades de comunicación con usuarios que sigo aplicando al dar soporte a compañeros no técnicos.',
+      'projects.eyebrow': '04 — Proyectos', 'projects.h2': 'Cosas que he construido', 'projects.allRepos': 'Todos los repositorios',
+      'projects.featured': 'Destacado', 'projects.featured.tags': 'Next.js · Supabase · TypeScript',
+      'projects.finanzas.desc': 'Una aplicación multiplataforma de finanzas personales para registrar ingresos y gastos y controlar de verdad tu dinero, con un apartado de métricas para ver la evolución del gasto. Hecha con <span class="text-slate-200">Next.js y Supabase</span>, desplegada en Vercel. Un proyecto personal que sigo iterando para practicar arquitectura full-stack de principio a fin.',
+      'projects.finanzas.b1': 'Registro de ingresos y gastos con backend en Postgres vía Supabase',
+      'projects.finanzas.b2': 'Panel de métricas para seguir la evolución del gasto en el tiempo',
+      'projects.finanzas.b3': 'Arquitectura server-side con el App Router de Next.js y TypeScript',
+      'projects.finanzas.b4': 'Desplegada y actualizada de forma continua en Vercel',
+      'projects.liveDemo': 'Ver demo',
+      'projects.spotitube.desc': 'Un pipeline de Python sin interfaz que clona mis playlists de Spotify en YouTube Music usando solo APIs oficiales — sin automatización de navegador, sin pasos manuales.',
+      'projects.viewGithub': 'Ver en GitHub',
+      'projects.pria.desc': 'Repositorio de mi formación en IA &amp; Big Data — análisis exploratorio de datos escrito en R.',
+      'edu.eyebrow': '05 — Formación y Certificaciones', 'edu.h2': 'Formación',
+      'edu.card1.desc': 'Especialista certificado en implementar, configurar y optimizar soluciones Dynamics 365 en CRM y ERP, integrándolas con el resto del stack de Microsoft.',
+      'edu.card2.title': 'Curso de Especialización — IA &amp; Big Data', 'edu.card2.org': 'Educación Superior',
+      'edu.card2.desc': 'Curso de especialización en fundamentos de inteligencia artificial y big data, construida sobre mi base de desarrollo de software.',
+      'edu.card3.title': 'Grado Superior — Gestión Web/Multimedia y Webmaster',
+      'edu.card3.desc': 'Formación profesional superior en desarrollo web y gestión multimedia — la base de todo lo que he construido después.',
+      'edu.card4.desc': 'Certificación de nivel avanzado — cómodo trabajando en equipos de IT internacionales y multiculturales.',
+      'contact.eyebrow': '06 — Contacto', 'contact.h2': 'Hablemos.',
+      'contact.p': 'Ya sea un reto de Microsoft 365, un proyecto de desarrollo o simplemente una conversación sobre automatización — mi bandeja de entrada está abierta.',
+      'contact.copy': 'Copiar dirección', 'contact.copied': '¡Copiado!', 'contact.copyFallback': 'Pulsa ⌘/Ctrl+C',
+      'footer.built': 'Hecho con Tailwind CSS · sin analítica, sin cookies',
+    }
+  };
+
+  function applyLang(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.getElementById('pageTitle').textContent = I18N[lang]['pageTitle'];
+    document.getElementById('pageDescription').setAttribute('content', I18N[lang]['pageDescription']);
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (I18N[lang][key] !== undefined) el.innerHTML = I18N[lang][key];
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const on = btn.getAttribute('data-lang-btn') === lang;
+      btn.classList.toggle('active', on);
+      btn.setAttribute('aria-pressed', on);
+    });
+    try { localStorage.setItem('site-lang', lang); } catch (e) {}
+  }
+
+  let currentLang = 'en';
+  const savedLang = (() => { try { return localStorage.getItem('site-lang'); } catch (e) { return null; } })();
+  const browserLang = (navigator.language || 'en').toLowerCase().startsWith('es') ? 'es' : 'en';
+  applyLang(savedLang || browserLang);
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => applyLang(btn.getAttribute('data-lang-btn')));
+  });
+</script>
+</body>
+</html>
